@@ -1,0 +1,26 @@
+# Requirements for Grayson County Appraisal Data Transformer
+# Install with: pip install -r requirements.txt
+
+# GUI Framework
+PyQt5>=5.15.0
+
+# Data Processing
+pandas>=1.5.0
+
+# Excel File Handling
+openpyxl>=3.0.0
+
+# HTTP Requests for downloading files
+requests>=2.28.0
+
+# add pyautogui for GUI automation tasks
+pyautogui>=0.9.53
+
+# Standard library modules (included with Python)
+# - os
+# - sys
+# - tempfile
+# - zipfile
+# - glob
+# - logging
+# - datetime
