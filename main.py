@@ -7,7 +7,6 @@ from PyQt5.QtWidgets import (
 import os
 import logging
 from datetime import datetime
-import pandas as pd
 from ui import BaseWindow
 
 

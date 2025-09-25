@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import zipfile
 import logging
-import os
+import os, json
 
 # Global temporary directory - create in current working directory
 TEMP_DIR = os.path.join(os.getcwd(), "tmp")
@@ -1022,6 +1022,13 @@ def generate_excel(input_file_path, output_excel_path, chunk_size):
         for chunk_df in reader:
             # Process the chunk here
             logger.info(f"Starting row {start_rows}")
+            # implement mapping logic here
+            with open("mappings.json", "r") as f:
+                mappings = json.load(f)
+            for key, mapping in mappings.items():
+                for col in chunk_df.columns:
+                    if key in col:
+                        chunk_df[col] = chunk_df[col].map(mapping).fillna(chunk_df[col])
             if os.path.exists(output_excel_path):
                 # File exists, append to it
                 with pd.ExcelWriter(
